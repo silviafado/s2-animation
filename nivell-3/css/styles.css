@@ -1,0 +1,166 @@
+/* Display layout */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
+
+/* Stripes styling */
+.stripe {
+    width: 20%;
+    height: 100vh;    
+}
+
+.stripe-content {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    overflow: hidden;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+}
+
+/* Stripes line effect when not hovering */
+.stripe-content:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0.05;
+    overflow: hidden;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: skew(30deg) scaleY(1) translate(0, 0);
+    transform: skew(30deg) scaleY(1) translate(0, 0);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Stripes line animation when hovering */
+.stripe .stripe-content:hover:before {
+    -webkit-transform: skew(0deg) scale(3) translate(0, 0);
+            transform: skew(0deg) scale(3) translate(0, 0);
+    opacity: 0.1;
+}
+
+/* Styling each line and loading animation */
+#blue {
+    background-color: #244F75;
+    animation-name: strip1;
+    left: 0;
+    animation-delay: 0.1s;
+}
+
+#green {
+    background-color: #60BFBF;
+    animation-name: strip2;
+    left: 20vw;
+    animation-delay: 0.2s;
+}
+
+#purple {
+    background-color: #8C4B7E;
+    animation-name: strip3;
+    left: 40vw;
+    animation-delay: 0.3s;
+}
+
+#yellow {
+    background-color: #F8BB44;
+    animation-name: strip4;
+    left: 60vw;
+    animation-delay: 0.4s;
+}
+
+#red {
+    background-color: #F24B4B;
+    animation-name: strip5;
+    left: 80vw;
+    animation-delay: 0.5s;
+}
+
+/* Text styling */
+.title {
+    display: block;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    font-size: 3.5vw;
+    color: white;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    text-align: center;
+}
+
+h1 {
+    font-weight: 300;
+    font-family: 'Lato';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+    line-height: 1.5;
+}
+
+
+/* The animation code */
+/* Loading animation for each stripe */
+@keyframes strip1 {
+    0% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+                transform: translate3d(-100%, 0, 0);
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes strip2 {
+    0% {
+        -webkit-transform: translate3d(0, 100%, 0);
+                transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes strip3 {
+    0% {
+        -webkit-transform: translate3d(0, -100%, 0);
+                transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes strip4 {
+    0% {
+        -webkit-transform: translate3d(0, 100%, 0);
+                transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes strip5 {
+    0% {
+        -webkit-transform: translate3d(100%, 0, 0);
+                transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+    }
+}
